@@ -3,7 +3,7 @@ name: Deploy to Surge
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   deploy:
@@ -16,7 +16,7 @@ jobs:
     - name: Install Node.js
       uses: actions/setup-node@v2
       with:
-        node-version: '14'
+        node-version: '20.14.0'
 
     - name: Install Surge
       run: npm install --global surge
@@ -24,4 +24,4 @@ jobs:
     - name: Deploy to Surge
       env:
         SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }} 
-      run: surge --project ./ --domain tu-url.surge.sh
+      run: surge --project ./ --domain ronny-20230627-p1-devops.surge.sh
